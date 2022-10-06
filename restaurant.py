@@ -65,7 +65,7 @@ class App1:
 
         #----------- Creating builtin calculator-----------#
         self.entryOrder = tk.Entry(master=top, bg='#d9d9d9', fg='#c60000', font=font_1, selectbackground='#f2a343', selectforeground='#ffffff')
-        self.entryOrder.place(relx=0.705, rely=0.24, height=35, relwidth=0.267)
+        self.entryOrder.place(relx=0.705, rely=0.24, height=35, relwidth=0.230)
         
         self.one_button = tk.Button(master=top, text='''1''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
         self.one_button.place(relx=0.705, rely=0.34, height=50, width=50)
@@ -110,6 +110,30 @@ class App1:
         self.equal_button = tk.Button(master=top, text='''=''', bg='green', fg='#ffffff', font=font_5, borderwidth='1')
         self.equal_button.place(relx=0.825, rely=0.78, height=50, width=113)
 
+        #----------- List Food Cost-----------#
+        self.LabelCost = tk.Label(master=top, text="Cost :", font=font_3, fg='red', bg='#091833')
+        self.LabelCost.place(relx=0.46, rely=0.32)
+        self.Label_service = tk.Label(master=top, text="Service Charge :", font=font_3, fg='#bac8bd', bg='#091833')
+        self.Label_service.place(relx=0.43, rely=0.4)
+        self.Label_tax = tk.Label(master=top, text="Tax :", font=font_3, fg='#bac8bd', bg='#091833')
+        self.Label_tax.place(relx=0.46, rely=0.48)
+        self.Label_subtotal = tk.Label(master=top, text="Subtotal :", font=font_3, fg='#bac8bd', bg='#091833')
+        self.Label_subtotal.place(relx=0.45, rely=0.56)
+        self.Label_total = tk.Label(master=top, text="Total :", font=font_3, fg='#bac8bd', bg='#091833')
+        self.Label_total.place(relx=0.46, rely=0.64)
+
+
+        self.entryCost = tk.Entry(master=top, bg='#d9d9d9', fg='#c60000', font=font_1, selectbackground='#f2a343', selectforeground='#ffffff')
+        self.entryCost.place(relx=0.56, rely=0.32, relwidth=0.111)
+        self.entryCost = tk.Entry(master=top, bg='#d9d9d9', fg='#c60000', font=font_1, selectbackground='#f2a343', selectforeground='#ffffff')
+        self.entryCost.place(relx=0.56, rely=0.4, relwidth=0.111)
+        self.entryCost = tk.Entry(master=top, bg='#d9d9d9', fg='#c60000', font=font_1, selectbackground='#f2a343', selectforeground='#ffffff')
+        self.entryCost.place(relx=0.56, rely=0.48, relwidth=0.111)
+        self.entryCost = tk.Entry(master=top, bg='#d9d9d9', fg='#c60000', font=font_1, selectbackground='#f2a343', selectforeground='#ffffff')
+        self.entryCost.place(relx=0.56, rely=0.56, relwidth=0.111)
+        self.entryCost = tk.Entry(master=top, bg='#d9d9d9', fg='#c60000', font=font_1, selectbackground='#f2a343', selectforeground='#ffffff')
+        self.entryCost.place(relx=0.56, rely=0.64, relwidth=0.111)
+        
 
 '''Making a main root so that the window will not disappear once the program is run'''
 root = tk.Tk()
