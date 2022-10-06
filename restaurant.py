@@ -63,6 +63,54 @@ class App1:
         self.entryOrder = tk.Entry(master=top, bg='#d9d9d9', fg='#c60000', font=font_1, selectbackground='#f2a343', selectforeground='#ffffff')
         self.entryOrder.place(relx=0.25, rely=0.71)
 
+        #----------- Creating builtin calculator-----------#
+        self.entryOrder = tk.Entry(master=top, bg='#d9d9d9', fg='#c60000', font=font_1, selectbackground='#f2a343', selectforeground='#ffffff')
+        self.entryOrder.place(relx=0.705, rely=0.24, height=35, relwidth=0.267)
+        
+        self.one_button = tk.Button(master=top, text='''1''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.one_button.place(relx=0.705, rely=0.34, height=50, width=50)
+        self.two_button = tk.Button(master=top, text='''2''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.two_button.place(relx=0.765, rely=0.34, height=50, width=50)
+        self.three_button = tk.Button(master=top, text='''3''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.three_button.place(relx=0.825, rely=0.34, height=50, width=50)
+        
+        self.four_button = tk.Button(master=top, text='''4''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.four_button.place(relx=0.705, rely=0.45, height=50, width=50)
+        self.five_button = tk.Button(master=top, text='''5''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.five_button.place(relx=0.765, rely=0.45, height=50, width=50)
+        self.six_button = tk.Button(master=top, text='''6''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.six_button.place(relx=0.825, rely=0.45, height=50, width=50)
+
+        self.seven_button = tk.Button(master=top, text='''7''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.seven_button.place(relx=0.705, rely=0.56, height=50, width=50)
+        self.eight_button = tk.Button(master=top, text='''8''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.eight_button.place(relx=0.765, rely=0.56, height=50, width=50)
+        self.nine_button = tk.Button(master=top, text='''9''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.nine_button.place(relx=0.825, rely=0.56, height=50, width=50)
+
+        self.zero_button = tk.Button(master=top, text='''0''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.zero_button.place(relx=0.765, rely=0.67, height=50, width=50)
+        self.decimal_button = tk.Button(master=top, text='''.''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.decimal_button.place(relx=0.705, rely=0.67, height=50, width=50)
+        self.mod_button = tk.Button(master=top, text='''%''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.mod_button.place(relx=0.825, rely=0.67, height=50, width=50)
+        self.del_all_button = tk.Button(master=top, text='''C''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.del_all_button.place(relx=0.705, rely=0.78, height=50, width=50)
+        self.del_one_button = tk.Button(master=top, text='''⌫''', bg='red', fg='#ffffff', font=font_5, borderwidth='1')
+        self.del_one_button.place(relx=0.765, rely=0.78, height=50, width=50)
+
+        self.add_button = tk.Button(master=top, text='''+''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.add_button.place(relx=0.885, rely=0.34, height=50, width=50)
+        self.sub_button = tk.Button(master=top, text='''-''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.sub_button.place(relx=0.885, rely=0.45, height=50, width=50)
+        self.mul_button = tk.Button(master=top, text='''*''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.mul_button.place(relx=0.885, rely=0.56, height=50, width=50)
+        self.div_button = tk.Button(master=top, text='''/''', bg='#122c63', fg='#ffffff', font=font_5, borderwidth='1')
+        self.div_button.place(relx=0.885, rely=0.67, height=50, width=50)
+        self.equal_button = tk.Button(master=top, text='''=''', bg='green', fg='#ffffff', font=font_5, borderwidth='1')
+        self.equal_button.place(relx=0.825, rely=0.78, height=50, width=113)
+
+
 '''Making a main root so that the window will not disappear once the program is run'''
 root = tk.Tk()
 my_gui = App1(root)
