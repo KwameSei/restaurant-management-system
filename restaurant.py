@@ -2,10 +2,66 @@ from cgitb import text
 import tkinter as tk
 from tkinter import DISABLED, END, Checkbutton, Label, Button, IntVar, StringVar
 import time
+from tkinter.font import NORMAL
 import parser
 
 #Displaying login time to the user
 localtime = time.asctime(time.localtime(time.time()))
+
+#Functions for checkbutton
+def food_1():
+        if var1.get()==1:
+                food_entry1.config(state=NORMAL)  #Changing state of the checkbutton in the entry display
+                food_entry1.delete(0, END)
+                food_entry1.focus()
+        else:
+                food_entry1.config(state=DISABLED)
+                food1.set('0')
+
+def food_2():
+        if var2.get()==1:
+                food_entry2.config(state=NORMAL)  #Changing state of the checkbutton in the entry display
+                food_entry2.delete(0, END)
+                food_entry2.focus()
+        else:
+                food_entry2.config(state=DISABLED)
+                food2.set('0')
+
+def food_3():
+        if var3.get()==1:
+                food_entry3.config(state=NORMAL)  #Changing state of the checkbutton in the entry display
+                food_entry3.delete(0, END)
+                food_entry3.focus()
+        else:
+                food_entry3.config(state=DISABLED)
+                food3.set('0')
+
+def food_4():
+        if var4.get()==1:
+                food_entry4.config(state=NORMAL)  #Changing state of the checkbutton in the entry display
+                food_entry4.delete(0, END)
+                food_entry4.focus()
+        else:
+                food_entry4.config(state=DISABLED)
+                food4.set('0')
+
+def food_5():
+        if var5.get()==1:
+                food_entry5.config(state=NORMAL)  #Changing state of the checkbutton in the entry display
+                food_entry5.delete(0, END)
+                food_entry5.focus()
+        else:
+                food_entry5.config(state=DISABLED)
+                food5.set('0')
+
+def food_6():
+        if var6.get()==6:
+                food_entry6.config(state=NORMAL)  #Changing state of the checkbutton in the entry display
+                food_entry6.delete(0, END)
+                food_entry6.focus()
+        else:
+                food_entry6.config(state=DISABLED)
+                food6.set('0')
 
 root = tk.Tk()  #name of the window
 root.title("Restaurant Manager")
@@ -58,15 +114,7 @@ food3 = StringVar()
 food4 = StringVar()
 food5 = StringVar()
 food6 = StringVar()
-food7 = StringVar()
-
-#Costs entry
-foodcostvar = StringVar()
-drinkscostvar = StringVar()
-costvar = StringVar()
-taxvar = StringVar()
-subtotalvar = StringVar()
-totalvar = StringVar()
+orderNum = StringVar()
 
 #Setting empty fields to zero
 food1.set('0')
@@ -75,7 +123,15 @@ food3.set('0')
 food4.set('0')
 food5.set('0')
 food6.set('0')
-food7.set('0')
+orderNum.set('0')
+
+#Costs entry
+foodcostvar = StringVar()
+drinkscostvar = StringVar()
+costvar = StringVar()
+taxvar = StringVar()
+subtotalvar = StringVar()
+totalvar = StringVar()
 
 #----------- Food Info-----------#
 
@@ -102,34 +158,34 @@ LabelOrder.place(relx=0.025, rely=0.64)
 LabelOrder = tk.Label(root, text="Drinks :", font=font_3, fg='#bac8bd', bg='#091833')
 LabelOrder.place(relx=0.025, rely=0.71)
 
-        #----------- Food Label-----------#
-entryOrder = tk.Entry(root, bg='#d9d9d9',state=DISABLED, textvariable=food1, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
-entryOrder.place(relx=0.16, rely=0.25)
-entryOrder = tk.Entry(root, bg='#d9d9d9',state=DISABLED, textvariable=food2, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
-entryOrder.place(relx=0.16, rely=0.32)
-entryOrder = tk.Entry(root, bg='#d9d9d9',state=DISABLED, textvariable=food3, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
-entryOrder.place(relx=0.16, rely=0.4)
-entryOrder = tk.Entry(root, bg='#d9d9d9',state=DISABLED, textvariable=food4, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
-entryOrder.place(relx=0.16, rely=0.48)
-entryOrder = tk.Entry(root, bg='#d9d9d9',state=DISABLED, textvariable=food5, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
-entryOrder.place(relx=0.16, rely=0.56)
-entryOrder = tk.Entry(root, bg='#d9d9d9',state=DISABLED, textvariable=food6, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
-entryOrder.place(relx=0.16, rely=0.64)
-entryOrder = tk.Entry(root, bg='#d9d9d9',state=DISABLED, textvariable=food7, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
-entryOrder.place(relx=0.16, rely=0.71)
+        #----------- Food Entry-----------#
+food_entry = tk.Entry(root, bg='#d9d9d9', state=DISABLED, textvariable=orderNum, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
+food_entry.place(relx=0.16, rely=0.25)
+food_entry1 = tk.Entry(root, bg='#d9d9d9', state=DISABLED, textvariable=food1, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
+food_entry1.place(relx=0.16, rely=0.32)
+food_entry2 = tk.Entry(root, bg='#d9d9d9', state=DISABLED, textvariable=food2, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
+food_entry2.place(relx=0.16, rely=0.4)
+food_entry3 = tk.Entry(root, bg='#d9d9d9', state=DISABLED, textvariable=food3, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
+food_entry3.place(relx=0.16, rely=0.48)
+food_entry4 = tk.Entry(root, bg='#d9d9d9', state=DISABLED, textvariable=food4, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
+food_entry4.place(relx=0.16, rely=0.56)
+food_entry5 = tk.Entry(root, bg='#d9d9d9', state=DISABLED, textvariable=food5, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
+food_entry5.place(relx=0.16, rely=0.64)
+food_entry6 = tk.Entry(root, bg='#d9d9d9', state=DISABLED, textvariable=food6, width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
+food_entry6.place(relx=0.16, rely=0.71)
 
-foodCheck = Checkbutton(root, onvalue=1, offvalue=0, variable=var1, background='#091833')
-foodCheck.place(relx=0.004, rely=0.32)
-foodCheck = Checkbutton(root, onvalue=1, offvalue=0, variable=var2, background='#091833')
-foodCheck.place(relx=0.004, rely=0.4)
-foodCheck = Checkbutton(root, onvalue=1, offvalue=0, variable=var3, background='#091833')
-foodCheck.place(relx=0.004, rely=0.48)
-foodCheck = Checkbutton(root, onvalue=1, offvalue=0, variable=var4, background='#091833')
-foodCheck.place(relx=0.004, rely=0.56)
-foodCheck = Checkbutton(root, onvalue=1, offvalue=0, variable=var5, background='#091833')
-foodCheck.place(relx=0.004, rely=0.64)
-foodCheck = Checkbutton(root, onvalue=1, offvalue=0, variable=var6, background='#091833')
-foodCheck.place(relx=0.004, rely=0.71)
+foodCheck_one = tk.Checkbutton(root, onvalue=1, offvalue=0, command=food_1, variable=var1, background='#091833')
+foodCheck_one.place(relx=0.004, rely=0.32)
+foodCheck_two = tk.Checkbutton(root, onvalue=1, offvalue=0, command=food_2, variable=var2, background='#091833')
+foodCheck_two.place(relx=0.004, rely=0.4)
+foodCheck_three = tk.Checkbutton(root, onvalue=1, offvalue=0, command=food_3, variable=var3, background='#091833')
+foodCheck_three.place(relx=0.004, rely=0.48)
+foodCheck_four = tk.Checkbutton(root, onvalue=1, offvalue=0, command=food_4, variable=var4, background='#091833')
+foodCheck_four.place(relx=0.004, rely=0.56)
+foodCheck_five = tk.Checkbutton(root, onvalue=1, offvalue=0, command=food_5, variable=var5, background='#091833')
+foodCheck_five.place(relx=0.004, rely=0.64)
+foodCheck_six = tk.Checkbutton(root, onvalue=1, offvalue=0, command=food_6, variable=var6, background='#091833')
+foodCheck_six.place(relx=0.004, rely=0.71)
 
         #----------- Drinks Label-----------#
 Labeldrinks = tk.Label(root, text="Order Num :", font=font_3, fg='#bac8bd', bg='#091833')
@@ -163,18 +219,18 @@ entrydrinks.place(relx=0.41, rely=0.64)
 entrydrinks = tk.Entry(root, bg='#d9d9d9', width=7, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
 entrydrinks.place(relx=0.41, rely=0.71)
 
-drinkCheck = Checkbutton(root, onvalue=1, offvalue=0, variable=var1, background='#091833')
-drinkCheck.place(relx=0.26, rely=0.32)
-drinkCheck = Checkbutton(root, onvalue=1, offvalue=0, variable=var2, background='#091833')
-drinkCheck.place(relx=0.26, rely=0.4)
-drinkCheck = Checkbutton(root, onvalue=1, offvalue=0, variable=var3, background='#091833')
-drinkCheck.place(relx=0.26, rely=0.48)
-drinkCheck = Checkbutton(root, onvalue=1, offvalue=0, variable=var4, background='#091833')
-drinkCheck.place(relx=0.26, rely=0.56)
-drinkCheck = Checkbutton(root, onvalue=1, offvalue=0, variable=var5, background='#091833')
-drinkCheck.place(relx=0.26, rely=0.64)
-drinkCheck = Checkbutton(root, onvalue=1, offvalue=0, variable=var6, background='#091833')
-drinkCheck.place(relx=0.26, rely=0.71)
+drink1 = Checkbutton(root, onvalue=1, offvalue=0, variable=var11, background='#091833')
+drink1.place(relx=0.26, rely=0.32)
+drink2 = Checkbutton(root, onvalue=1, offvalue=0, variable=var12, background='#091833')
+drink2.place(relx=0.26, rely=0.4)
+drink3 = Checkbutton(root, onvalue=1, offvalue=0, variable=var13, background='#091833')
+drink3.place(relx=0.26, rely=0.48)
+drink4 = Checkbutton(root, onvalue=1, offvalue=0, variable=var14, background='#091833')
+drink4.place(relx=0.26, rely=0.56)
+drink5 = Checkbutton(root, onvalue=1, offvalue=0, variable=var15, background='#091833')
+drink5.place(relx=0.26, rely=0.64)
+drink6 = Checkbutton(root, onvalue=1, offvalue=0, variable=var16, background='#091833')
+drink6.place(relx=0.26, rely=0.71)
 
 #----------- Creating builtin calculator-----------#
 i = 0
