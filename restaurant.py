@@ -2,6 +2,7 @@ from cgitb import text
 import tkinter as tk
 from tkinter import DISABLED, END, Checkbutton, Label, Button, IntVar, StringVar
 import time
+import random   #Used for generating bill/receipt
 from tkinter.font import NORMAL
 import parser
 
@@ -300,6 +301,207 @@ def deli_12():
                 entryDeli12.config(state=DISABLED)
                 deli12.set('0')
 
+def get_receipt():
+        Receipt_display.delete(1.0, END)        #Deleting previous state or data entered
+        
+        food_price1 = 100
+        food_price2 = 15
+        food_price3 = 32
+        food_price4 = 41
+        food_price5 = 25
+        food_price6 = 50
+        food_price7 = 75
+        food_price8 = 48
+        food_price9 = 55
+        food_price10 = 62
+        food_price11 = 38
+        food_price12 = 83
+
+        drink_price1 = 5
+        drink_price2 = 5
+        drink_price3 = 10
+        drink_price4 = 30
+        drink_price5 = 11
+        drink_price6 = 25
+        drink_price7 = 31
+        drink_price8 = 35
+        drink_price9 = 50
+        drink_price10 = 43
+        drink_price11 = 40
+        drink_price12 = 20
+
+        deli_price1 = 6
+        deli_price2 = 6
+        deli_price3 = 7
+        deli_price4 = 23
+        deli_price5 = 8
+        deli_price6 = 11
+        deli_price7 = 15
+        deli_price8 = 70
+        deli_price9 = 90
+        deli_price10 = 10
+        deli_price11 = 95
+        deli_price12 = 81
+
+        item1 = int(food1.get())   #Converting the string from empty fields into int
+        item2 = int(food2.get())
+        item3 = int(food3.get())
+        item4 = int(food4.get())
+        item5 = int(food5.get())
+        item6 = int(food6.get())
+        item7 = int(food7.get())
+        item8 = int(food8.get())
+        item9 = int(food9.get())
+        item10 = int(food10.get())
+        item11 = int(food11.get())
+        item12 = int(food12.get())
+
+        item13 = int(drinks1.get())   #Converting the string from empty fields into int
+        item14 = int(drinks2.get())
+        item15 = int(drinks3.get())
+        item16 = int(drinks4.get())
+        item17 = int(drinks5.get())
+        item18 = int(drinks6.get())
+        item19 = int(drinks7.get())
+        item20 = int(drinks8.get())
+        item21 = int(drinks9.get())
+        item22 = int(drinks10.get())
+        item23 = int(drinks11.get())
+        item24 = int(drinks12.get())
+
+        item25 = int(deli1.get())   #Converting the string from empty fields into int
+        item26 = int(deli2.get())
+        item27 = int(deli3.get())
+        item28 = int(deli4.get())
+        item29 = int(deli5.get())
+        item30 = int(deli6.get())
+        item31 = int(deli7.get())
+        item32 = int(deli8.get())
+        item33 = int(deli9.get())
+        item34 = int(deli10.get())
+        item35 = int(deli11.get())
+        item36 = int(deli12.get())
+
+        random_num = random.randint(10, 100000)      #Randomly generated bill number
+        receipt_num = 'BILL' + str(random_num)
+        date = time.strftime('%d/%m/%Y')
+        #Inserting variables into the receipt display panel
+        Receipt_display.insert(END, 'Receipt Ref:\t' + receipt_num +'\t'+ date + '\n')
+        Receipt_display.insert(END, '*********************************\n')
+        Receipt_display.insert(END, 'Items Bought\t\t\t' + 'Cost(₵)\n')
+        Receipt_display.insert(END, '*********************************\n')
+
+        #Calculating item costs on the receipt is item quantity is not 0
+                                #Drinks bill preparation
+        if food1.get() != '0':
+                Receipt_display.insert(END, f'Full Grilled Chicken :\t\t\t{int(food1.get()) * int(food_price1)}' + '\n')
+        if food2.get() != '0':
+                Receipt_display.insert(END, f'Jollof Rice & Chicken :\t\t\t{int(food2.get()) * int(food_price2)}' + '\n')
+        if food3.get() != '0':
+                Receipt_display.insert(END, f'Fried Rice & Chicken :\t\t\t{int(food3.get()) * int(food_price3)}' + '\n')
+        if food4.get() != '0':
+                Receipt_display.insert(END, f'Banku & Tilapia :\t\t\t{int(food4.get()) * int(food_price4)}' + '\n')
+        if food5.get() != '0':
+                Receipt_display.insert(END, f'Fufu & Mutton Soup :\t\t\t{int(food5.get()) * int(food_price5)}' + '\n')
+        if food6.get() != '0':
+                Receipt_display.insert(END, f'Red Red :\t\t\t{int(food6.get()) * int(food_price6)}' + '\n')
+        if food7.get() != '0':
+                Receipt_display.insert(END, f'Yam & Palava Sauce :\t\t\t{int(food7.get()) * int(food_price7)}' + '\n')
+        if food8.get() != '0':
+                Receipt_display.insert(END, f'Rice Balls & Groundnut Soup :\t\t\t{int(food8.get()) * int(food_price8)}' + '\n')
+        if food9.get() != '0':
+                Receipt_display.insert(END, f'Grilled Pork & Banku :\t\t\t{int(food9.get()) * int(food_price9)}' + '\n')
+        if food10.get() != '0':
+                Receipt_display.insert(END, f'Pepper Soup :\t\t\t{int(food10.get()) * int(food_price10)}' + '\n')
+        if food11.get() != '0':
+                Receipt_display.insert(END, f'TZ & Ayoyo Soup :\t\t\t{int(food11.get()) * int(food_price11)}' + '\n')
+        if food12.get() != '0':
+                Receipt_display.insert(END, f'Waakye :\t\t\t{int(food12.get()) * int(food_price12)}' + '\n')
+
+                                #Drinks bill preparation
+        if drinks1.get() != '0':
+                Receipt_display.insert(END, f'Fanta :\t\t\t{int(drinks1.get()) * int(drink_price1)}' + '\n')
+        if drinks2.get() != '0':
+                Receipt_display.insert(END, f'Coca Cola :\t\t\t{int(drinks2.get()) * int(drink_price2)}' + '\n')
+        if drinks3.get() != '0':
+                Receipt_display.insert(END, f'Malta Guinness (bottle) :\t\t\t{int(drinks3.get()) * int(drink_price3)}' + '\n')
+        if drinks4.get() != '0':
+                Receipt_display.insert(END, f'Don Simon :\t\t\t{int(drinks4.get()) * int(drink_price4)}' + '\n')
+        if drinks5.get() != '0':
+                Receipt_display.insert(END, f'Malta Guinness (can) :\t\t\t{int(drinks5.get()) * int(drink_price5)}' + '\n')
+        if drinks6.get() != '0':
+                Receipt_display.insert(END, f'Root Beer :\t\t\t{int(drinks6.get()) * int(drink_price6)}' + '\n')
+        if drinks7.get() != '0':
+                Receipt_display.insert(END, f'Star Beer :\t\t\t{int(drinks7.get()) * int(drink_price7)}' + '\n')
+        if drinks8.get() != '0':
+                Receipt_display.insert(END, f'Club Beer :\t\t\t{int(drinks8.get()) * int(drink_price8)}' + '\n')
+        if drinks9.get() != '0':
+                Receipt_display.insert(END, f'Vodka :\t\t\t{int(drinks9.get()) * int(drink_price9)}' + '\n')
+        if drinks10.get() != '0':
+                Receipt_display.insert(END, f'Club Beer (can) :\t\t\t{int(drinks10.get()) * int(drink_price10)}' + '\n')
+        if drinks11.get() != '0':
+                Receipt_display.insert(END, f'Jonnie Walker :\t\t\t{int(drinks11.get()) * int(drink_price11)}' + '\n')
+        if drinks12.get() != '0':
+                Receipt_display.insert(END, f'Heineken :\t\t\t{int(drinks12.get()) * int(drink_price12)}' + '\n')
+
+                                                #Delicacies bill preparation
+        if deli1.get() != '0':
+                Receipt_display.insert(END, f'Chicken Pizza :\t\t\t{int(deli1.get()) * int(deli_price1)}' + '\n')
+        if deli2.get() != '0':
+                Receipt_display.insert(END, f'Beef Pizza :\t\t\t{int(deli2.get()) * int(deli_price2)}' + '\n')
+        if deli3.get() != '0':
+                Receipt_display.insert(END, f'Mango Smoothie :\t\t\t{int(drinks3.get()) * int(deli_price3)}' + '\n')
+        if deli4.get() != '0':
+                Receipt_display.insert(END, f'Banana Smoothie :\t\t\t{int(deli4.get()) * int(deli_price4)}' + '\n')
+        if deli5.get() != '0':
+                Receipt_display.insert(END, f'Mixed Smoothie :\t\t\t{int(deli5.get()) * int(deli_price5)}' + '\n')
+        if deli6.get() != '0':
+                Receipt_display.insert(END, f'Shawarma :\t\t\t{int(deli6.get()) * int(deli_price6)}' + '\n')
+        if deli7.get() != '0':
+                Receipt_display.insert(END, f'Sausage :\t\t\t{int(deli7.get()) * int(deli_price7)}' + '\n')
+        if deli8.get() != '0':
+                Receipt_display.insert(END, f'Salad :\t\t\t{int(deli8.get()) * int(deli_price8)}' + '\n')
+        if deli9.get() != '0':
+                Receipt_display.insert(END, f'Cookies :\t\t\t{int(deli9.get()) * int(deli_price9)}' + '\n')
+        if deli10.get() != '0':
+                Receipt_display.insert(END, f'Potato Fries & Chicken :\t\t\t{int(deli10.get()) * int(deli_price10)}' + '\n')
+        if deli11.get() != '0':
+                Receipt_display.insert(END, f'Cup Cake :\t\t\t{int(deli11.get()) * int(deli_price11)}' + '\n')
+        if deli12.get() != '0':
+                Receipt_display.insert(END, f'Sandwich :\t\t\t{int(deli12.get()) * int(deli_price12)}' + '\n')
+
+        foodPrices = (item1*food_price1) + (item2*food_price2) + (item3*food_price3) + (item4*food_price4) \
+                + (item5*food_price5) + (item6*food_price6) + (item7*food_price7) + (item8*food_price8) + (item9*food_price9) \
+                        + (item10*food_price10) +  (item11*food_price11) + (item12*food_price12)
+
+        drinkPrices = (item13*drink_price1) + (item14*drink_price2) + (item15*drink_price3) + (item16*drink_price4) \
+                + (item17*drink_price5) + (item18*drink_price6) + (item19*drink_price7) + (item20*drink_price8) + (item21*drink_price9) \
+                        + (item22*drink_price10) +  (item23*drink_price11) + (item24*drink_price12)
+
+        deliPrices = (item25*deli_price1) + (item26*deli_price2) + (item27*deli_price3) + (item28*deli_price4) \
+                + (item29*deli_price5) + (item30*deli_price6) + (item31*deli_price7) + (item32*deli_price8) + (item33*deli_price9) \
+                        + (item34*deli_price10) +  (item35*deli_price11) + (item36*deli_price12)
+
+        #Calculating subtotal        
+        sub_total_price = foodPrices + drinkPrices + deliPrices
+        #Calculating tax
+        serviceTax = sub_total_price * 0.17
+        costs_sum = sub_total_price + serviceTax
+
+        Receipt_display.insert(END, '*********************************\n')
+        if foodPrices != 0:
+                Receipt_display.insert(END, f'Total food cost\t\t\t₵{foodPrices}\n')
+
+        if drinkPrices != 0:
+                Receipt_display.insert(END, f'Total drinks cost\t\t\t₵{drinkPrices}\n')
+
+        if deliPrices != 0:
+                Receipt_display.insert(END, f'Total delicacies cost\t\t\t₵{deliPrices}\n')
+
+        Receipt_display.insert(END, f'Subtotal:\t\t\t₵{sub_total_price}\n')
+        Receipt_display.insert(END, f'Service Tax\t\t\t₵{serviceTax}\n')
+        Receipt_display.insert(END, f'Total Cost\t\t\t₵{costs_sum}\n')
+
 '''============Start============Functions for the control buttons============Start============'''
 def total_cost():
         #Getting the quantities from the empty fields
@@ -377,18 +579,18 @@ def total_cost():
                 + (item17*drink_price5) + (item18*drink_price6) + (item19*drink_price7) + (item20*drink_price8) + (item21*drink_price9) \
                         + (item22*drink_price10) +  (item23*drink_price11) + (item24*drink_price12)
 
-        deli_price1 = 5
-        deli_price2 = 5
-        deli_price3 = 10
-        deli_price4 = 30
-        deli_price5 = 11
-        deli_price6 = 25
-        deli_price7 = 31
-        deli_price8 = 35
-        deli_price9 = 50
-        deli_price10 = 43
-        deli_price11 = 40
-        deli_price12 = 20
+        deli_price1 = 6
+        deli_price2 = 6
+        deli_price3 = 7
+        deli_price4 = 23
+        deli_price5 = 8
+        deli_price6 = 11
+        deli_price7 = 15
+        deli_price8 = 70
+        deli_price9 = 90
+        deli_price10 = 10
+        deli_price11 = 95
+        deli_price12 = 81
 
         deliPrices = (item25*deli_price1) + (item26*deli_price2) + (item27*deli_price3) + (item28*deli_price4) \
                 + (item29*deli_price5) + (item30*deli_price6) + (item31*deli_price7) + (item32*deli_price8) + (item33*deli_price9) \
@@ -654,20 +856,20 @@ Labeldrinks4 = tk.Label(root, text="Don Simon :", font=font_3, fg='#bac8bd', bg=
 Labeldrinks4.place(relx=0.28, rely=0.33)
 Labeldrinks5 = tk.Label(root, text="Malta Guinness(Can) :", font=font_3, fg='#bac8bd', bg='#091833')
 Labeldrinks5.place(relx=0.28, rely=0.38)
-Labeldrinks5 = tk.Label(root, text="Root Beer(Can) :", font=font_3, fg='#bac8bd', bg='#091833')
-Labeldrinks5.place(relx=0.28, rely=0.43)
-Labeldrinks5 = tk.Label(root, text="Star Beer(Can) :", font=font_3, fg='#bac8bd', bg='#091833')
-Labeldrinks5.place(relx=0.28, rely=0.48)
-Labeldrinks6 = tk.Label(root, text="Club Beer(bottle) :", font=font_3, fg='#bac8bd', bg='#091833')
-Labeldrinks6.place(relx=0.28, rely=0.53)
-Labeldrinks7 = tk.Label(root, text="Vodka :", font=font_3, fg='#bac8bd', bg='#091833')
-Labeldrinks7.place(relx=0.28, rely=0.58)
-Labeldrinks8 = tk.Label(root, text="Club Beer(can) :", font=font_3, fg='#bac8bd', bg='#091833')
-Labeldrinks8.place(relx=0.28, rely=0.63)
-Labeldrinks9 = tk.Label(root, text="Jonnie Walker :", font=font_3, fg='#bac8bd', bg='#091833')
-Labeldrinks9.place(relx=0.28, rely=0.68)
-Labeldrinks10 = tk.Label(root, text="Heineken :", font=font_3, fg='#bac8bd', bg='#091833')
-Labeldrinks10.place(relx=0.28, rely=0.73)
+Labeldrinks6 = tk.Label(root, text="Root Beer(Can) :", font=font_3, fg='#bac8bd', bg='#091833')
+Labeldrinks6.place(relx=0.28, rely=0.43)
+Labeldrinks7 = tk.Label(root, text="Star Beer(Can) :", font=font_3, fg='#bac8bd', bg='#091833')
+Labeldrinks7.place(relx=0.28, rely=0.48)
+Labeldrinks8 = tk.Label(root, text="Club Beer(bottle) :", font=font_3, fg='#bac8bd', bg='#091833')
+Labeldrinks8.place(relx=0.28, rely=0.53)
+Labeldrinks9 = tk.Label(root, text="Vodka :", font=font_3, fg='#bac8bd', bg='#091833')
+Labeldrinks9.place(relx=0.28, rely=0.58)
+Labeldrinks10 = tk.Label(root, text="Club Beer(can) :", font=font_3, fg='#bac8bd', bg='#091833')
+Labeldrinks10.place(relx=0.28, rely=0.63)
+Labeldrinks11 = tk.Label(root, text="Jonnie Walker :", font=font_3, fg='#bac8bd', bg='#091833')
+Labeldrinks11.place(relx=0.28, rely=0.68)
+Labeldrinks12 = tk.Label(root, text="Heineken :", font=font_3, fg='#bac8bd', bg='#091833')
+Labeldrinks12.place(relx=0.28, rely=0.73)
 
         #----------- Drinks Label-----------#
 entryDrinks1 = tk.Entry(root, bg='#d9d9d9', width=7, textvariable=drinks1, fg='#c60000', font=font_3, selectbackground='#f2a343', selectforeground='#ffffff')
@@ -804,7 +1006,7 @@ deliCheck.place(relx=0.52, rely=0.73)
 
 '''============Start============Designing the Costs UI============Start============'''
         #----------- List Food Cost-----------#
-LabelCost = tk.Label(root, text="Total Food Cost:", font=font_3, fg='red', bg='#091833')
+LabelCost = tk.Label(root, text="Total Food Cost:", font=font_3, fg='#bac8bd', bg='#091833')
 LabelCost.place(relx=0.006, rely=0.87)
 Label_service = tk.Label(root, text="Total Drinks Cost:", font=font_3, fg='#bac8bd', bg='#091833')
 Label_service.place(relx=0.006, rely=0.91)
@@ -837,7 +1039,7 @@ entryCost.place(relx=0.291, rely=0.95, relwidth=0.085)
         #----------- Creating Control Buttons-----------#
 control_button = tk.Button(root, text='TOTAL', command=total_cost, font=font_4, bg='red', fg='#ffffff')
 control_button.place(relx=0.780, rely=0.94, height=34, width=55)  
-control_button = tk.Button(root, text='RESET', font=font_4, bg="#f2a343", fg='#ffffff')
+control_button = tk.Button(root, text='BILL', command=get_receipt, font=font_4, bg="#f2a343", fg='#ffffff')
 control_button.place(relx=0.826, rely=0.94, height=34, width=55) 
 control_button = tk.Button(root, text='SAVE', font=font_4, bg="#f2a343", fg='#ffffff')
 control_button.place(relx=0.872, rely=0.94, height=34, width=55)     
@@ -847,8 +1049,8 @@ control_button.place(relx=0.917, rely=0.94, height=34, width=55)
 '''============End============Designing the Costs UI============End============'''
 
         #Creating the receipt panel
-Receipt = tk.Text(root, font=font_4, width=33, height=16)
-Receipt.place(relx=0.780, rely=0.56)
+Receipt_display = tk.Text(root, font=font_4, width=33, height=16)
+Receipt_display.place(relx=0.780, rely=0.56)
 
 #----------- Creating builtin calculator-----------#
 i = 0
